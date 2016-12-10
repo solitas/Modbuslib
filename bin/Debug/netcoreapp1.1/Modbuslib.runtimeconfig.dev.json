@@ -1,7 +1,7 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "/Users/soojang/.nuget/packages"
+      "C:\\Users\\Solit\\.nuget\\packages"
     ]
   }
 }
