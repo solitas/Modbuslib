@@ -1,2 +1,9 @@
 *.dll
 project.lock.json
+*.pdb
+*.pdb
+bin/Debug/netcoreapp1.1/Modbuslib.runtimeconfig.dev.json
+*.SDKVersion
+obj/Debug/netcoreapp1.1/dotnet-compile-csc.rsp
+*.rsp
+obj/Debug/netcoreapp1.1/dotnet-compile.assemblyinfo.cs
