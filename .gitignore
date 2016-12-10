@@ -330,3 +330,6 @@ __pycache__/
 
     © 2016 GitHub, Inc. Terms Privacy Security Status Help 
 
+*.dll
+bin/Debug/netcoreapp1.1/Modbuslib.pdb
+*.pdb
