@@ -6,7 +6,7 @@ namespace Modbuslib
     public class ModbusTcpClient
     {
         private ushort  _transactionId = 0;
-        private ushort _modbusProtocolID = 0x0000;
+        //private ushort _modbusProtocolID = 0x0000;
 
         public byte UnitID { get; set;}
         ClientPort _clientPort;

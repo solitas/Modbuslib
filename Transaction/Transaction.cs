@@ -5,6 +5,8 @@ namespace Modbuslib.Transaction
 {
     public abstract class MBTransaction
     {
+        protected const ushort MBAP_HEADER_SIZE = 7;
+
         public ushort TransactionID             { set; get; }
         public ushort ProtocolID                { set; get; }
         public byte UnitID                      { set; get; }
@@ -14,15 +16,16 @@ namespace Modbuslib.Transaction
 
         public byte FunctionCode                { set; get; }
 
-        protected byte[] GetMBAPHeader()
+        protected byte[] GetMBAPHeader(ushort length)
         {
+            ushort len = (ushort)(length + 1);
             byte[] buffer = new byte[7];
             buffer[0] = (byte) (TransactionID >> 8);
             buffer[1] = (byte) (TransactionID & 0x00FF);
             buffer[2] = (byte) (ProtocolID >> 8);
             buffer[3] = (byte) (ProtocolID & 0x00FF);
-            buffer[4] = (byte) (Count >> 8);
-            buffer[5] = (byte) (Count & 0x00FF);
+            buffer[4] = (byte) (len >> 8);
+            buffer[5] = (byte) (len & 0x00FF);
             buffer[6] = (byte) (UnitID);
             return buffer;
         }
@@ -31,9 +34,9 @@ namespace Modbuslib.Transaction
 
         public byte[] RequestADU()
         {
-            var header = GetMBAPHeader();
             var pdu = GetRequestPDU();
-            
+            var header = GetMBAPHeader((ushort)pdu.Length);
+                        
             return header.Concat(pdu).ToArray();
         }
     }

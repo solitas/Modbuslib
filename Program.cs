@@ -11,9 +11,9 @@ namespace ConsoleApplication
             ushort[] recvBuffer = new ushort[2];
 
             client.ReadHoldingRegisters(0x0001, 2, recvBuffer);
-            client.ReadHoldingRegisters(0x0002, 2, recvBuffer);
-            client.ReadHoldingRegisters(0x0003, 2, recvBuffer);
-            client.ReadHoldingRegisters(0x0004, 2, recvBuffer);
+            client.ReadHoldingRegisters(0x0002, 1, recvBuffer);
+            client.ReadHoldingRegisters(0x0003, 5, recvBuffer);
+            client.ReadHoldingRegisters(0x0004, 22, recvBuffer);
 
             client.WriteSingleRegister(0x0002, 4);
 
